@@ -7,11 +7,16 @@
   },
   "dependencies": {
     "@vue-composable/axios": "^1.0.0-beta.10",
+    "@webcrypto/tools": "^1.1.0",
     "axios": "^0.20.0",
     "bulma": "^0.9.0",
+    "bulma-dracula": "^1.1.1",
+    "clipboard": "^2.0.6",
+    "prismjs": "^1.21.0",
     "vue": "^3.0.0-rc.1"
   },
   "devDependencies": {
+    "@types/prismjs": "^1.16.1",
     "@typescript-eslint/eslint-plugin": "^4.1.1",
     "@typescript-eslint/parser": "^4.1.1",
     "@vue/compiler-sfc": "^3.0.0-rc.1",

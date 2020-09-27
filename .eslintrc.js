@@ -11,6 +11,10 @@ module.exports = {
   },
   plugins: ['vue', '@typescript-eslint'],
   rules: {
-    'no-unused-vars': 'off'
+    'no-unused-vars': 'off',
+    'space-before-function-paren': 'off',
+    'vue/no-template-key': 'off',
+    'vue/require-v-for-key': 'off',
+    'vue/valid-template-root': 'off'
   }
 }

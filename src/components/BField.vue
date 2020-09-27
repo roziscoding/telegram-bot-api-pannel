@@ -1,7 +1,7 @@
 <template>
   <div class="field">
     <label v-if="label" class="label">{{ label }}</label>
-    <div class="control" :class="controlClasses">
+    <div class="control is-expanded" :class="controlClasses">
       <slot :class="inputClasses" :disabled="disabled" />
       <span v-if="iconLeft" class="icon is-left" :class="iconSpanClasses">
         <i :class="iconLeft"></i>

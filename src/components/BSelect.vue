@@ -2,18 +2,9 @@
   <b-field v-bind="$attrs">
     <template v-slot:default="slotProps">
       <div class="select is-fullwidth" v-bind="slotProps">
-        <select
-          :value="modelValue"
-          @input="updateModelValue"
-          :disabled="disabled"
-        >
-          <option value="" v-if="allowEmpty"></option>
-          <option
-            v-for="option in options"
-            :key="option.value"
-            :value="option.value"
-          >
-            {{ option.name }}
+        <select :value="selectedOption" @input="updateModelValue" :disabled="disabled">
+          <option v-for="option in options" :key="option" :value="option">
+            {{ option }}
           </option>
         </select>
       </div>
@@ -21,32 +12,42 @@
   </b-field>
 </template>
 
-<script setup="props, { emit }" lang="ts">
-import { computed, SetupContext } from 'vue'
+<script lang="ts">
+import { computed, Prop, PropType } from 'vue'
 
 import BField from './BField.vue'
 import { useModel } from '../hooks/use-model'
 
-declare const emit: SetupContext['emit']
-
-declare const props: {
-  items: Array<string | { name: string; value: string }>
-  allowEmpty?: boolean
-  modelValue?: string
-  disabled?: boolean
-}
-
-export const updateModelValue = useModel(emit)
-
-export const options = computed(() =>
-  props.items.map((item) => {
-    if (typeof item !== 'string') return item
-    return { name: item, value: item }
-  })
-)
-
 export default {
   name: 'BSelect',
+  props: {
+    items: {
+      type: Array as PropType<Array<{ name: string; value: any }>>,
+      required: true
+    },
+    modelValue: { type: Object as PropType<{ name: string; [x: string]: any }>, required: true },
+    disabled: { type: Boolean, required: false, default: false }
+  },
+  setup(props, { emit }) {
+    const updateModelValue = useModel(emit, undefined, (e) => {
+      const selectedItem = props.items.find((item) => item.name === e.target.value)
+
+      if (!selectedItem) return undefined
+
+      return selectedItem.value
+    })
+
+    const options = computed(() => props.items.map((item) => item.name))
+    const selectedOption = computed(
+      () => props.items.find((item) => item.name === props.modelValue.name)?.name
+    )
+
+    return {
+      updateModelValue,
+      selectedOption,
+      options
+    }
+  },
   components: {
     BField
   }
