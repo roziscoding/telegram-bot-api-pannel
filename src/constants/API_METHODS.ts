@@ -55,6 +55,20 @@ export const API_METHODS: Record<string, ApiMethod> = {
       chat_id: 'string',
       message_id: 'number'
     }
+  },
+  editMessageText: {
+    name: 'editMessageText',
+    icon: 'fas fa-comment-edit',
+    method: 'POST',
+    params: {
+      chat_id: 'string',
+      message_id: 'number',
+      inline_message_id: 'string',
+      text: 'string',
+      parse_mode: 'string',
+      disable_web_page_preview: 'boolean',
+      reply_markup: 'string'
+    }
   }
 }
 
