@@ -58,7 +58,7 @@ export const API_METHODS: Record<string, ApiMethod> = {
       text: 'string',
       parse_mode: 'string',
       disable_web_page_preview: 'boolean',
-      reply_markup: 'object'
+      reply_markup: 'string'
     }
   }
 }
