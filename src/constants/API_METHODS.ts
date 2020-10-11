@@ -55,6 +55,29 @@ export const API_METHODS: Record<string, ApiMethod> = {
       chat_id: 'string'
     }
   },
+  deleteMessage: {
+    name: 'deleteMessage',
+    icon: 'fas fa-comment-times',
+    method: 'POST',
+    params: {
+      chat_id: 'string',
+      message_id: 'number'
+    }
+  },
+  editMessageText: {
+    name: 'editMessageText',
+    icon: 'fas fa-comment-edit',
+    method: 'POST',
+    params: {
+      chat_id: 'string',
+      message_id: 'number',
+      inline_message_id: 'string',
+      text: 'string',
+      parse_mode: 'string',
+      disable_web_page_preview: 'boolean',
+      reply_markup: 'string'
+    }
+  }
 }
 
 export const AVAILABLE_METHODS: ApiMethodName[] = Object.keys(API_METHODS)
