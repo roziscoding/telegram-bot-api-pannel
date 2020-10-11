@@ -46,7 +46,15 @@ export const API_METHODS: Record<string, ApiMethod> = {
     icon: 'fas fa-info',
     method: 'GET',
     params: {}
-  }
+  },
+  getChat: {
+    name: 'getChat',
+    icon: 'fas fa-comments',
+    method: 'GET',
+    params: {
+      chat_id: 'string'
+    }
+  },
 }
 
 export const AVAILABLE_METHODS: ApiMethodName[] = Object.keys(API_METHODS)
