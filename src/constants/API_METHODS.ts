@@ -46,6 +46,15 @@ export const API_METHODS: Record<string, ApiMethod> = {
     icon: 'fas fa-info',
     method: 'GET',
     params: {}
+  },
+  deleteMessage: {
+    name: 'deleteMessage',
+    icon: 'fas fa-comment-times',
+    method: 'POST',
+    params: {
+      chat_id: 'string',
+      message_id: 'number'
+    }
   }
 }
 
