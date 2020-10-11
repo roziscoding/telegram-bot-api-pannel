@@ -47,6 +47,14 @@ export const API_METHODS: Record<string, ApiMethod> = {
     method: 'GET',
     params: {}
   },
+  getFile: {
+    name: 'getFile',
+    icon: 'fas fa-file',
+    method: 'GET',
+    params: {
+      file_id: 'string'
+    }
+  },
   getChat: {
     name: 'getChat',
     icon: 'fas fa-comments',
